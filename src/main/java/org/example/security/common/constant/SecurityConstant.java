@@ -1,4 +1,4 @@
-package org.example.security.constant;
+package org.example.security.common.constant;
 
 public class SecurityConstant {
     private SecurityConstant() {

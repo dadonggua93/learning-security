@@ -1,56 +1,76 @@
 package org.example.security.domain.entity;
 
 import lombok.Data;
-import org.apache.tomcat.jni.User;
+import org.example.security.common.constant.RoleEnum;
+import org.hibernate.annotations.Where;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Collection;
 import java.util.List;
 
+@Where(clause = "del_flag = '0'")
+@Table(name = "user")
 @Data
-public class PlatformUser implements UserDetails {
+public class PlatformUser extends BaseEntity implements UserDetails {
 
+    @Id
     private Long id;
 
     private String username;
 
     private String password;
 
-    private List<PlatformRole> userRole;
+
+    private String roles;
+
+    private String nickname;
+    private String email;
+    private String mobile;
+    private String address;
+    @Column(name = "account_status")
+    private String accountStatus;
+    @Column(name = "lock_status")
+    private String lockStatus;
+
+
+    private List<GrantedAuthority> authorities;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return authorities;
     }
 
     @Override
     public String getPassword() {
-        return null;
+        return password;
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return username;
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 }

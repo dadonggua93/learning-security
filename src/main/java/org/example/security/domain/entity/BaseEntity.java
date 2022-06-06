@@ -1,7 +1,7 @@
 package org.example.security.domain.entity;
 
 import lombok.Data;
-import org.example.security.constant.CommonConstant;
+import org.example.security.common.constant.CommonConstant;
 
 import javax.persistence.Column;
 import java.util.Date;
