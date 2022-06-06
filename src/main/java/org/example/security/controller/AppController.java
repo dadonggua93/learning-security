@@ -4,15 +4,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RequestMapping("/demo")
+@RequestMapping("/app")
 @RestController
-public class DemoController {
-
+public class AppController {
 
     @GetMapping
     public String info() {
-        return "demo detail";
+        return "app detail";
     }
-
 
 }
