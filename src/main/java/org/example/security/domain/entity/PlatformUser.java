@@ -31,7 +31,6 @@ public class PlatformUser extends BaseEntity implements UserDetails {
     private String nickname;
     private String email;
     private String mobile;
-    private String address;
     @Column(name = "account_status")
     private String accountStatus;
     @Column(name = "lock_status")

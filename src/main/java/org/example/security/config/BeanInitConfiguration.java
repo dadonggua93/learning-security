@@ -3,16 +3,9 @@ package org.example.security.config;
 import com.google.code.kaptcha.Producer;
 import com.google.code.kaptcha.impl.DefaultKaptcha;
 import com.google.code.kaptcha.util.Config;
-import org.example.security.common.constant.SecurityConstant;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.provisioning.JdbcUserDetailsManager;
 
-import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
@@ -26,15 +19,15 @@ public class BeanInitConfiguration {
 //        return manager;
 //    }
 
-    @Autowired
-    private DataSource dataSource;
+//    @Autowired
+//    private DataSource dataSource;
 
-    @Bean
-    public UserDetailsService userDetailsService() {
-        JdbcUserDetailsManager manager = new JdbcUserDetailsManager();
-        manager.setDataSource(dataSource);
-        return manager;
-    }
+//    @Bean
+//    public UserDetailsService userDetailsService() {
+//        JdbcUserDetailsManager manager = new JdbcUserDetailsManager();
+//        manager.setDataSource(dataSource);
+//        return manager;
+//    }
 
     /**
      * 图形验证码
