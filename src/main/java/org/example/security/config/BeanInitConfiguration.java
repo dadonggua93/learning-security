@@ -33,8 +33,6 @@ public class BeanInitConfiguration {
     public UserDetailsService userDetailsService() {
         JdbcUserDetailsManager manager = new JdbcUserDetailsManager();
         manager.setDataSource(dataSource);
-        manager.createUser(User.withUsername("user").password(new BCryptPasswordEncoder().encode("123456")).roles(SecurityConstant.ROLE_USER).build());
-        manager.createUser(User.withUsername("root").password(new BCryptPasswordEncoder().encode("123456")).roles(SecurityConstant.ROLE_ADMIN).build());
         return manager;
     }
 

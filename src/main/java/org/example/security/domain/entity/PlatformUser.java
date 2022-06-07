@@ -4,14 +4,20 @@ import lombok.Data;
 import org.example.security.common.constant.RoleEnum;
 import org.hibernate.annotations.Where;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
+@Entity
 @Where(clause = "del_flag = '0'")
 @Table(name = "user")
 @Data
@@ -19,14 +25,9 @@ public class PlatformUser extends BaseEntity implements UserDetails {
 
     @Id
     private Long id;
-
     private String username;
-
     private String password;
-
-
     private String roles;
-
     private String nickname;
     private String email;
     private String mobile;
@@ -37,11 +38,9 @@ public class PlatformUser extends BaseEntity implements UserDetails {
     private String lockStatus;
 
 
-    private List<GrantedAuthority> authorities;
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return authorities;
+        return AuthorityUtils.commaSeparatedStringToAuthorityList(this.roles);
     }
 
     @Override

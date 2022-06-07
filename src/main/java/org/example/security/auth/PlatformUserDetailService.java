@@ -24,7 +24,6 @@ public class PlatformUserDetailService implements UserDetailsService {
         if (Objects.isNull(platformUser)) {
             throw new BusinessException("user not exist");
         }
-        platformUser.setAuthorities(AuthorityUtils.commaSeparatedStringToAuthorityList(platformUser.getRoles()));
         return platformUser;
     }
 }

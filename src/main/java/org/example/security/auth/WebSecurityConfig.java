@@ -1,4 +1,4 @@
-package org.example.security.config;
+package org.example.security.auth;
 
 import org.example.security.common.constant.SecurityConstant;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
